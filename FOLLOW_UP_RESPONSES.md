@@ -37,20 +37,20 @@ I would deploy using **AWS Lambda** with API Gateway as the entry point.
 
 ## 2. How would you monitor and evaluate its performance when it's in production?
 
-**Monitoring:**
-- **CloudWatch Metrics**: Track Lambda invocations, duration, errors, cold starts
-- **X-Ray**: Trace request flow and identify bottlenecks
-- **Custom metrics**: LLM response time, token usage, API call success rates
-- **CloudWatch Logs Insights**: Query conversation logs for patterns
+**Infrastructure Monitoring:**
+- **CloudWatch**: Lambda metrics (invocations, duration, errors, cold starts)
+- **X-Ray**: Request tracing and bottleneck identification
+- **CloudWatch Logs Insights**: Query patterns in conversation logs
 
-**Evaluation:**
-- **Business Metrics**: 
-  - Lead conversion rate (new pharmacy → scheduled callback)
-  - Successful pharmacy identification rate
-  - Average conversation duration
-- **Quality Metrics**:
-  - LLM response relevance (sample and review)
-  - Conversation completion rate
-  - User satisfaction (follow-up surveys)
-  - Fallback/error rate
-- **Alerts**: Set up SNS notifications for error rates, response times, budget thresholds
+**Performance Metrics:**
+- **Business KPIs**: Lead conversion rate, pharmacy identification rate, avg conversation duration
+- **System Performance**: API call success rate, response latency (P50/P95/P99), token usage/cost
+- **Conversation Quality**: Completion rate, user satisfaction, fallback/error rate
+
+**LLM-Specific Evals:**
+- **Automated Testing**: Accuracy tests, hallucination detection, API data consistency checks
+- **Conversation Analysis**: Intent recognition rate, context retention, prompt injection resistance
+- **Human Review**: Sample scoring for quality, edge case collection
+- **Tools**: LangSmith for experiment tracking, custom eval suite for automated testing
+
+**Alerting**: SNS notifications for error thresholds, response times, budget limits, eval score degradation
